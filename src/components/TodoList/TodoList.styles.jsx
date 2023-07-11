@@ -6,6 +6,8 @@ export const TodoListItemContainer = styled.div`
     align-items: center;
 `
 export const TodoListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     border: 1px solid black; 
     background: #F2ECB3;
     border-radius: 0.5rem;

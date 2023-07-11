@@ -1,8 +1,10 @@
 import { AddToListButtonContainer, Span } from './AddToListButton.styles';
 
-const AddToListButton = () => {
+const AddToListButton = ({ addTodo }) => {
     return (
-        <AddToListButtonContainer>
+        <AddToListButtonContainer
+            onClick={addTodo}
+        >
             <Span>Add to List</Span>
         </AddToListButtonContainer>
     )

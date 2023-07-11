@@ -9,10 +9,10 @@ import {
 } from './TodoItem.styles';
 import EditButton from '../EditButton/EditButton';
 
-const TodoItem = () => {
+const TodoItem = ({ todoTitle, todoDescription }) => {
     const [isEditable, setIsEditable] = useState(false);
-    const [title, setTitle] = useState('Title');
-    const [description, setDescription] = useState('description');
+    const [title, setTitle] = useState(todoTitle);
+    const [description, setDescription] = useState(todoDescription);
 
     const handleEdit = () => {
         setIsEditable(!isEditable);
