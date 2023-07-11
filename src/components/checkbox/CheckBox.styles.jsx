@@ -51,7 +51,6 @@ export const CheckBoxContainer = styled.div`
         background: none;
         border-radius: 50%;
         position: absolute;
-        top: 12px;
         left: 0;
         transform: trasnlate3d(0, 0, 0);
         pointer-events: none;

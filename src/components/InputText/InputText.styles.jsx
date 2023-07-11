@@ -7,7 +7,6 @@ export const InputTextContainer = styled.div`
     .input {
         border: solid 1.5px #9e9e9e;
         border-radius: 0.5rem;
-        background: none;
         padding: 1rem;
         font-size: 1rem;
         color: #3C3C3C;
