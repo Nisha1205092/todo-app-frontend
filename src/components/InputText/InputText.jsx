@@ -1,10 +1,11 @@
-import './InputText.styles.css';
+import { InputTextContainer } from "./InputText.styles";
 
 const InputText = () => {
     return (
-        <div className="title-input">
+        <InputTextContainer>
             <input required type="text" name="title" autoComplete="off" className="input" placeholder='Your todo title' />
-        </div>
+        </InputTextContainer>
+
     );
 };
 

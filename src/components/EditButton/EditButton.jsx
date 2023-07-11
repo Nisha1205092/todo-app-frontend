@@ -1,9 +1,9 @@
-import './EditButton.styles.css';
+import { EditButtonContainer } from "./EditButton.styles"
 
 const EditButton = ({ editButtonHandler, buttonText }) => {
     return (
         <div onClick={editButtonHandler}>
-            <span className="edit-button-container">
+            <EditButtonContainer>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -18,7 +18,7 @@ const EditButton = ({ editButtonHandler, buttonText }) => {
                     />
                 </svg>
                 {buttonText}
-            </span>
+            </EditButtonContainer>
         </div>
     )
 }

@@ -1,20 +1,19 @@
-import './Checkbox.styles.css';
+import { CheckBoxContainer } from './CheckBox.styles';
+import React from 'react';
 
-const Checkbox = () => {
+const CheckBox = () => {
     return (
-        <label className="container">
-            <input type="checkbox" defaultChecked={true} />
-            <div className="checkmark"></div>
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" className="celebrate">
-                <polygon points="0,0 10,10"></polygon>
-                <polygon points="0,25 10,25"></polygon>
-                <polygon points="0,50 10,40"></polygon>
-                <polygon points="50,0 40,10"></polygon>
-                <polygon points="50,25 40,25"></polygon>
-                <polygon points="50,50 40,40"></polygon>
-            </svg>
-        </label>
+        <CheckBoxContainer>
+            <div className="cbx">
+                <input id="cbx-12" type="checkbox" />
+                <label for="cbx-12"></label>
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none">
+                    <path d="M2 8.36364L6.23077 12L13 2"></path>
+                </svg>
+            </div>
+        </CheckBoxContainer>
+
     )
 }
 
-export default Checkbox
+export default CheckBox;

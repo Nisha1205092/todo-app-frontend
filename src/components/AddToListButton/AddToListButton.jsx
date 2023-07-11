@@ -1,10 +1,10 @@
-import './AddToListButton.styles.css';
+import { AddToListButtonContainer, Span } from './AddToListButton.styles';
 
 const AddToListButton = () => {
     return (
-        <button className="button">
-            <span className="button-content">Add to List</span>
-        </button>
+        <AddToListButtonContainer>
+            <Span>Add to List</Span>
+        </AddToListButtonContainer>
     )
 }
 

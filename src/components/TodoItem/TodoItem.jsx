@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import './TodoItem.styles.css'; // Import the CSS file
+import {
+    CustomInput,
+    TodoItemContainer,
+    TodoItemDescription,
+    CustomTextArea,
+    TodoItemTitle,
+    TitleDescriptionContainer
+} from './TodoItem.styles';
 import EditButton from '../EditButton/EditButton';
 
 const TodoItem = () => {
@@ -17,35 +24,33 @@ const TodoItem = () => {
     };
 
     return (
-        <div className="todo-item">
-            <div className='title-description-container'>
+        <TodoItemContainer>
+            <TitleDescriptionContainer>
                 {isEditable ? (
-                    <input
+                    <CustomInput
                         type="text"
-                        className="custom-input"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 ) : (
-                    <h3 className='todo-item-title'>{title}</h3>
+                    <TodoItemTitle>{title}</TodoItemTitle>
                 )}
 
                 {isEditable ? (
-                    <textarea
-                        className="custom-input"
+                    <CustomTextArea
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 ) : (
-                    <p className='todo-item-description'>{description}</p>
+                    <TodoItemDescription>{description}</TodoItemDescription>
                 )}
-            </div>
+            </TitleDescriptionContainer>
 
             <EditButton
                 editButtonHandler={!isEditable ? handleEdit : handleSave}
                 buttonText={isEditable ? 'Save' : 'Edit'}
             />
-        </div>
+        </TodoItemContainer>
     );
 };
 

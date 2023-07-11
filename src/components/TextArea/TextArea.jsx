@@ -1,18 +1,17 @@
-import './TextArea.styles.css';
+import { TextAreaContainer, TextAreaInput } from "./TextArea.styles";
 
 const TextArea = () => {
     return (
-        <div className="textarea-input">
-            <textarea
+        <TextAreaContainer>
+            <TextAreaInput
                 required
                 type="text"
                 name="description"
                 id='description'
                 placeholder="Your todo description"
                 autoComplete="off"
-                className="input"
-            ></textarea>
-        </div>
+            ></TextAreaInput>
+        </TextAreaContainer>
     );
 };
 
