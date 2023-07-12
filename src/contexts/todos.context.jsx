@@ -23,7 +23,18 @@ export const TodoContextProvider = ({ children }) => {
 
     }, [])
 
-    const value = { todosArray, setTodosArray }
+    const removeTodoItem = (todoId) => {
+        const newTodosArray = todosArray.filter(todo => todo._id !== todoId)
+        setTodosArray(newTodosArray)
+    }
+
+    const addTodoItem = (todoItem) => {
+        const newTodosArray = [...todosArray];
+        newTodosArray.push({ ...todoItem })
+        setTodosArray(newTodosArray)
+    }
+
+    const value = { todosArray, setTodosArray, removeTodoItem, addTodoItem }
     return (
         <TodoContext.Provider value={value}>
             {children}

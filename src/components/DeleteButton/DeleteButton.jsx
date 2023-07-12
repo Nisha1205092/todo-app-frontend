@@ -1,8 +1,29 @@
+import { useContext } from "react";
 import { DeleteButtonContainer } from "./DeleteButton.styles";
+import { TodoContext } from "../../contexts/todos.context";
 
-const DeleteButton = () => {
+const DeleteButton = ({ todoId }) => {
+    const { removeTodoItem } = useContext(TodoContext);
+
+    const fetchAllTodos = async () => {
+        const data = await fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
+            method: 'GET'
+        })
+        const response = await data.json()
+        return await response.todoArray;
+    }
+
+    const deleteHandler = () => {
+        console.log('delete button clicked')
+        fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
+            method: 'DELETE'
+        })
+            .then(() => console.log('delete successful'))
+        // delete the todo from the todosArray context
+        removeTodoItem(todoId);
+    }
     return (
-        <DeleteButtonContainer>
+        <DeleteButtonContainer onClick={deleteHandler}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

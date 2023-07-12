@@ -1,18 +1,21 @@
 import { TextAreaContainer, TextAreaInput } from "../TextArea/TextArea.styles";
 import AddToListButton from '../AddToListButton/AddToListButton'
 import { CreateNewTodoContainer } from './CreateNewTodo.styles'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { InputTextContainer } from "../InputText/InputText.styles";
+import { TodoContext } from "../../contexts/todos.context";
 
 const CreateNewTodo = () => {
+    const { addTodoItem } = useContext(TodoContext);
     const [title, setTitle] = useState('Title');
+    const [description, setDescription] = useState('Description');
+    let todoId;
 
     const titleSetter = (event) => {
         setTitle(event.target.value)
         console.log({ title })
     }
 
-    const [description, setDescription] = useState('Description');
 
     const descriptionSetter = (event) => {
         setDescription(event.target.value)
@@ -36,10 +39,14 @@ const CreateNewTodo = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                todoId = data.id
                 // After adding a new item, clear the input fields and refresh the table
                 setTitle('')
                 setDescription('')
             })
+
+        // add the todo to the todosArray context
+        addTodoItem({ todoId, title, completed: false, description })
     }
     return (
         <CreateNewTodoContainer>

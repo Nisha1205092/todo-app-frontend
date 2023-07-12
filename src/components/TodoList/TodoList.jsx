@@ -26,7 +26,7 @@ const TodoList = () => {
                                 todoTitle={todo.title}
                                 todoDescription={todo.description}
                             />
-                            <DeleteButton />
+                            <DeleteButton todoId={todo._id} />
                         </TodoListItemContainer>
                     )
                     : 'loading'
