@@ -13,7 +13,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
     const [isEditable, setIsEditable] = useState(false);
     const [title, setTitle] = useState(todoTitle);
     const [description, setDescription] = useState(todoDescription);
-    const [isEdited, setIsEdited] = useState(false);
+    const [isEdited, setIsEdited] = useState(false); // used to check if title/description is even updated or not
 
     const handleEdit = () => {
         setIsEditable(!isEditable);
