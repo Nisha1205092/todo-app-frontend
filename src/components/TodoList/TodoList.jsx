@@ -21,6 +21,7 @@ const TodoList = () => {
                         <TodoListItemContainer key={randomKeyGenerator()}>
                             <CheckBox key={randomKeyGenerator()} status={todo.completed} todoId={todo._id} />
                             <TodoItem
+                                todoId={todo._id}
                                 key={randomKeyGenerator()}
                                 todoTitle={todo.title}
                                 todoDescription={todo.description}
