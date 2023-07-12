@@ -13,6 +13,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
     const [isEditable, setIsEditable] = useState(false);
     const [title, setTitle] = useState(todoTitle);
     const [description, setDescription] = useState(todoDescription);
+    const [isEdited, setIsEdited] = useState(false);
 
     const handleEdit = () => {
         setIsEditable(!isEditable);
@@ -23,6 +24,12 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
         setIsEditable(false);
         console.log({ title, description })
 
+        if (!isEdited) {
+            // didn't edit title or description
+            return;
+        }
+        // reset the value
+        setIsEdited(false);
         // save in DB
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
             method: 'PUT',
@@ -44,7 +51,11 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
                     <CustomInput
                         type="text"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={(e) => {
+                            setTitle(e.target.value);
+                            setIsEdited(true);
+                        }
+                        }
                     />
                 ) : (
                     <TodoItemTitle $completed={todoCompleted}>{title}</TodoItemTitle>
@@ -53,7 +64,10 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
                 {isEditable ? (
                     <CustomTextArea
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={(e) => {
+                            setDescription(e.target.value);
+                            setIsEdited(true);
+                        }}
                     />
                 ) : (
                     <TodoItemDescription $completed={todoCompleted}>{description}</TodoItemDescription>
