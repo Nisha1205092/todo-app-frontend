@@ -1,6 +1,6 @@
 import { TodoContext } from '../../contexts/todos.context';
 import { CheckBoxContainer } from './CheckBox.styles';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 const CheckBox = ({ status, todoId }) => {
     const [isChecked, setIsChecked] = useState(status)
@@ -25,7 +25,7 @@ const CheckBox = ({ status, todoId }) => {
 
             setTodosArray(updatedTodos); // Update the todosArray state
             // update in DB
-            fetch(`http://localhost:3000/todos/${todoId}`, {
+            fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
                 method: 'PUT',
                 body: JSON.stringify({ completed: e.target.checked }),
                 headers: {

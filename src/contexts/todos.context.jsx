@@ -13,7 +13,7 @@ export const TodoContextProvider = ({ children }) => {
     useEffect(() => {
         console.log('useEffect run')
         const fetchAllTodos = async () => {
-            const data = await fetch('http://localhost:3000/todos', {
+            const data = await fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
                 method: 'GET'
             })
             const response = await data.json()

@@ -22,7 +22,7 @@ const CreateNewTodo = () => {
     const addTodo = () => {
         console.log({ title, description })
 
-        fetch('http://localhost:3000/todos', {
+        fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
             method: "POST",
             body: JSON.stringify({
                 title,
