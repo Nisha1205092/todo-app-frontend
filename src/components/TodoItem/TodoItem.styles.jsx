@@ -48,10 +48,12 @@ export const TitleDescriptionContainer = styled.div`
 export const TodoItemTitle = styled.h3`
     width: 100%;
     text-align: left;
+    text-decoration: ${props => (props.$completed ? 'line-through' : 'none')};
 `
 
 
 export const TodoItemDescription = styled.p`
     width: 100%;
     text-align: left;
+    color: ${props => (props.$completed ? '#BDBDBD' : '#3C3C3C')};
 `

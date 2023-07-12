@@ -24,6 +24,7 @@ const TodoList = () => {
                                 todoId={todo._id}
                                 key={randomKeyGenerator()}
                                 todoTitle={todo.title}
+                                todoCompleted={todo.completed}
                                 todoDescription={todo.description}
                             />
                             <DeleteButton todoId={todo._id} />

@@ -9,7 +9,7 @@ import {
 } from './TodoItem.styles';
 import EditButton from '../EditButton/EditButton';
 
-const TodoItem = ({ todoId, todoTitle, todoDescription }) => {
+const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
     const [isEditable, setIsEditable] = useState(false);
     const [title, setTitle] = useState(todoTitle);
     const [description, setDescription] = useState(todoDescription);
@@ -47,7 +47,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription }) => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 ) : (
-                    <TodoItemTitle>{title}</TodoItemTitle>
+                    <TodoItemTitle $completed={todoCompleted}>{title}</TodoItemTitle>
                 )}
 
                 {isEditable ? (
@@ -56,7 +56,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription }) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 ) : (
-                    <TodoItemDescription>{description}</TodoItemDescription>
+                    <TodoItemDescription $completed={todoCompleted}>{description}</TodoItemDescription>
                 )}
             </TitleDescriptionContainer>
 

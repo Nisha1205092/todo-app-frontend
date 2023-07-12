@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const EditButtonContainer = styled.span`
+    cursor: pointer;
     & svg {
         width: 30px;
         height: auto;
