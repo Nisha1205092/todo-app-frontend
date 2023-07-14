@@ -1,10 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 
-const defaultTodo = [{
-    title: 'Title',
-    description: 'Description',
-    completed: false
-}]
 export const TodoContext = createContext({
     showDeleteDialog: false,
     setShowDeleteDialog: () => { },
