@@ -82,6 +82,9 @@ export const TodoContextProvider = ({ children }) => {
             .catch((err) => alert('Something went wrong!'))
     }
 
+    /**
+     * handled the server not available case
+    */
     const updateTodoItem = (todoId, title, description) => {
         // save in DB
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
