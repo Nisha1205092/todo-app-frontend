@@ -10,7 +10,7 @@ export const TodoListContainer = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid black; 
-    background: #F2ECB3;
+    background: ${({ theme }) => theme.color2};
     border-radius: 0.5rem;
     padding: 0 60px 60px 60px; 
 `

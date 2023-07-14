@@ -8,11 +8,11 @@ export const CustomTextArea = styled.textarea`
     font-size: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
-    background-color: #F2ECB3;
-    color: #3c3c3c;
+    background-color: ${({ theme }) => theme.color2};
+    color: ${({ theme }) => theme.text};
 
     &:focus {
-        background-color: #F2ECB3;
+        background-color: ${({ theme }) => theme.color2};
     }
 `
 
@@ -24,11 +24,11 @@ export const CustomInput = styled.input`
     font-size: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
-    background-color: #F2ECB3;
-    color: #3c3c3c;
+    background-color: ${({ theme }) => theme.color2};
+    color: ${({ theme }) => theme.text};
 
     &:focus {
-        background-color: #F2ECB3;
+        background-color: ${({ theme }) => theme.color2};
     }
 `
 export const TodoItemContainer = styled.div`
@@ -55,5 +55,8 @@ export const TodoItemTitle = styled.h3`
 export const TodoItemDescription = styled.p`
     width: 100%;
     text-align: left;
-    color: ${props => (props.$completed ? '#BDBDBD' : '#3C3C3C')};
+    color: ${(props) => (props.$completed ? '#BDBDBD' : '#3C3C3C')};
+
 `
+// BDBDBD
+// 3C3C3C

@@ -5,7 +5,7 @@ export const DeleteButtonContainer = styled.div`
     & svg {
     width: 30px;
     height: auto;
-    color: #3c3c3c;
+    color: ${({ theme }) => theme.textAndIcon};
     opacity: 0.9;
 }
 `

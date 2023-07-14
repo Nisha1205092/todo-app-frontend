@@ -6,7 +6,7 @@ export const EditButtonContainer = styled.span`
         width: 30px;
         height: auto;
         opacity: 0.9;
-        color: #3c3c3c;
+        color: ${({ theme }) => theme.textAndIcon};
     }
 
     button {
