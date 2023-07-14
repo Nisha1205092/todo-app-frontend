@@ -15,6 +15,7 @@ const DeleteButton = ({ todoId }) => {
 
     const deleteHandler = () => {
         console.log('delete button clicked')
+        alert('Are you sure to delete it?');
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
             method: 'DELETE'
         })

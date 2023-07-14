@@ -8,6 +8,21 @@ import { TodoContext } from '../../contexts/todos.context'
 const TodoList = () => {
     const { todosArray } = useContext(TodoContext);
 
+    // Custom sorting function
+    const compareTodos = (a, b) => {
+        // Compare completed status
+        if (a.completed && !b.completed) {
+            return 1; // 'a' comes after 'b'
+        } else if (!a.completed && b.completed) {
+            return -1; // 'a' comes before 'b'
+        } else {
+            return 0; // No sorting needed
+        }
+    }
+
+    // Sort the todos array using the custom sorting function
+    todosArray.sort(compareTodos);
+
     const randomKeyGenerator = () => {
         const key = Math.floor(Math.random() * 1000000);
         return key;
