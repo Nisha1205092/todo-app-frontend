@@ -11,7 +11,6 @@ const CreateNewTodo = () => {
     const { addTodoItem } = useContext(TodoContext);
     const [title, setTitle] = useState('Title');
     const [description, setDescription] = useState('Description');
-    let todoId;
 
     const titleSetter = (event) => {
         setTitle(event.target.value)
@@ -65,28 +64,8 @@ const CreateNewTodo = () => {
     const addTodo = () => {
         console.log({ title, description })
 
-        fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
-            method: "POST",
-            body: JSON.stringify({
-                title,
-                description,
-                completed: false
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                todoId = data.id
-                // After adding a new item, clear the input fields and refresh the table
-                setTitle('')
-                setDescription('')
-            })
-
         // add the todo to the todosArray context
-        addTodoItem({ todoId, title, completed: false, description })
+        addTodoItem({ title, completed: false, description })
     }
 
     useEffect(() => {

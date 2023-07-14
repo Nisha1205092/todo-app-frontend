@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     CustomInput,
     TodoItemContainer,
@@ -8,8 +8,11 @@ import {
     TitleDescriptionContainer
 } from './TodoItem.styles';
 import EditButton from '../EditButton/EditButton';
+import { TodoContext } from '../../contexts/todos.context';
 
 const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
+    const { updateTodoItem } = useContext(TodoContext);
+
     const [isEditable, setIsEditable] = useState(false);
     const [title, setTitle] = useState(todoTitle);
     const [description, setDescription] = useState(todoDescription);
@@ -30,18 +33,8 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
         }
         // reset the value
         setIsEdited(false);
-        // save in DB
-        fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
-            method: 'PUT',
-            body: JSON.stringify({ title, description }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .then(() => console.log('title and description updated'))
-            .catch((err) => console.log(err))
+        //call function from context api
+        updateTodoItem(todoId, title, description)
     };
 
     return (
