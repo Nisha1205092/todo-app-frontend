@@ -27,8 +27,8 @@ export const AddToListButtonContainer = styled.button`
         height: inherit;
         border-radius: inherit;
         background: linear-gradient(82.3deg,
-                rgba(150, 93, 233, 1) 10.8%,
-                rgba(99, 88, 238, 1) 94.3%);
+                rgba(150, 93, 233, 0.7) 10.8%,
+                rgba(99, 88, 238, 0.7) 94.3%);
         transition: all 0.475s;        
     }
 `
