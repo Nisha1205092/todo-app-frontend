@@ -1,23 +1,28 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DeleteButtonContainer } from "./DeleteButton.styles";
 import DeleteDialog from "../DeleteDialog/DeleteDialog";
 import { TodoContext } from "../../contexts/todos.context";
 
 const DeleteButton = ({ todoId }) => {
-    const { showDeleteDialog, setShowDeleteDialog } = useContext(TodoContext);
+    const { showDeleteDialog, setShowDeleteDialog, removeTodoItem } = useContext(TodoContext);
+
+    useEffect(() => {
+        console.log(`showDeleteDialog: ${showDeleteDialog}`)
+    }, [showDeleteDialog])
+
     const cancelDelete = () => {
-        setShowDeleteDialog(false);
-        console.log(`cancelled! showDeleteDialog: ${showDeleteDialog}`);
+        setShowDeleteDialog(!showDeleteDialog);
+        console.log(`cancelled!`);
     }
     const deleteHandler = () => {
-        setShowDeleteDialog(false);
+        setShowDeleteDialog(!showDeleteDialog);
 
         // delete the todo from the todosArray context
         removeTodoItem(todoId);
-        console.log(`deleted! showDeleteDialog: ${showDeleteDialog}`);
+        console.log(`deleted!`);
     }
     return (
-        <DeleteButtonContainer onClick={() => setShowDeleteDialog(true)}>
+        <DeleteButtonContainer onClick={() => setShowDeleteDialog(!showDeleteDialog)}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

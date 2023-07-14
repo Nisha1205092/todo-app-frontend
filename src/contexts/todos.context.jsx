@@ -48,7 +48,7 @@ export const TodoContextProvider = ({ children }) => {
         setTodosArray(newTodosArray)
     }
 
-    const addTodoItem = (todoItem) => {
+    const addTodoItem = ({ title, completed, description }) => {
         let todoId;
 
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
@@ -66,14 +66,11 @@ export const TodoContextProvider = ({ children }) => {
             .then(data => {
                 console.log(data)
                 todoId = data.id
-                // After adding a new item, clear the input fields and refresh the table
-                setTitle('')
-                setDescription('')
             })
 
         // no need to fetch from the server
-        const newTodosArray = [todoId, ...todosArray];
-        newTodosArray.push({ ...todoItem })
+        const newTodosArray = [...todosArray];
+        newTodosArray.push({ todoId, title, completed, description })
         setTodosArray(newTodosArray)
     }
 

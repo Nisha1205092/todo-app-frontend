@@ -66,6 +66,9 @@ const CreateNewTodo = () => {
 
         // add the todo to the todosArray context
         addTodoItem({ title, completed: false, description })
+        // After adding a new item, clear the input fields and refresh the table
+        setTitle('')
+        setDescription('')
     }
 
     useEffect(() => {
