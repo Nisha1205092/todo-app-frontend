@@ -25,24 +25,37 @@ export const TodoContextProvider = ({ children }) => {
         return [];
     }
 
+    /**
+     * handled the server not available case
+    */
     useEffect(() => {
         console.log('useEffect run')
 
         fetchAllTodos()
-            .then(todos => setTodosArray(todos));
+            .then(todos => setTodosArray(todos))
+            .catch(err => alert('Something went wrong!'))
 
     }, [])
 
+    /** 
+     * handled the server not available case
+    */
     const removeTodoItem = (todoId) => {
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
             method: 'DELETE'
         })
-            .then(() => console.log('delete successful'))
-        //no need to fetch from server
-        const newTodosArray = todosArray.filter(todo => todo._id !== todoId)
-        setTodosArray(newTodosArray)
+            .then(() => {
+                console.log('delete successful')
+                //no need to fetch from server
+                const newTodosArray = todosArray.filter(todo => todo._id !== todoId)
+                setTodosArray(newTodosArray)
+            })
+            .catch((err) => alert('Something went wrorng!'))
     }
 
+    /**
+     * handled the server not available case
+    */
     const addTodoItem = ({ title, completed, description }) => {
         let todoId;
 
@@ -61,12 +74,12 @@ export const TodoContextProvider = ({ children }) => {
             .then(data => {
                 console.log(data)
                 todoId = data.id
+                // no need to fetch from the server
+                const newTodosArray = [...todosArray];
+                newTodosArray.push({ todoId, title, completed, description })
+                setTodosArray(newTodosArray)
             })
-
-        // no need to fetch from the server
-        const newTodosArray = [...todosArray];
-        newTodosArray.push({ todoId, title, completed, description })
-        setTodosArray(newTodosArray)
+            .catch((err) => alert('Something went wrong!'))
     }
 
     const updateTodoItem = (todoId, title, description) => {
@@ -79,19 +92,20 @@ export const TodoContextProvider = ({ children }) => {
             }
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .then(() => console.log('title and description updated'))
-            .catch((err) => console.log(err))
-        // // fetch from the server
-        // fetchAllTodos()
-        //     .then(todos => setTodosArray(todos));
-        const newTodosArray = [...todosArray];
-        const index = newTodosArray.findIndex(item => item._id === todoId);
-        if (index !== -1) {
-            newTodosArray[index].title = title;
-            newTodosArray[index].description = description;
-            setTodosArray(newTodosArray)
-        }
+            .then(data => {
+                console.log(data);
+                const newTodosArray = [...todosArray];
+                const index = newTodosArray.findIndex(item => item._id === todoId);
+                if (index !== -1) {
+                    newTodosArray[index].title = title;
+                    newTodosArray[index].description = description;
+                    setTodosArray(newTodosArray)
+                }
+                console.log('title and description updated')
+            })
+            .catch((err) => alert('Something went wrong! Please refresh!'))
+
+
     }
 
     const value = {
