@@ -6,7 +6,7 @@ const InputText = () => {
 
     const titleSetter = (event) => {
         setTitle(event.target.value)
-        console.log({ title })
+        // console.log({ title })
     }
     return (
         <InputTextContainer>

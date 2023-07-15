@@ -14,7 +14,7 @@ const CreateNewTodo = () => {
 
     const titleSetter = (event) => {
         setTitle(event.target.value)
-        console.log({ title })
+        // console.log({ title })
     }
 
     const handleInputClick = () => {
@@ -58,11 +58,11 @@ const CreateNewTodo = () => {
 
     const descriptionSetter = (event) => {
         setDescription(event.target.value)
-        console.log(description)
+        // console.log(description)
     }
 
     const addTodo = () => {
-        console.log({ title, description })
+        // console.log({ title, description })
 
         // add the todo to the todosArray context
         addTodoItem({ title, completed: false, description })

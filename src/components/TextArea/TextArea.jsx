@@ -5,7 +5,7 @@ const TextArea = () => {
     const [description, setDescription] = useState('');
     const descriptionSetter = (event) => {
         setDescription(event.target.value)
-        console.log(description)
+        // console.log(description)
     }
     return (
         <TextAreaContainer>

@@ -7,19 +7,19 @@ const DeleteButton = ({ todoId }) => {
     const { showDeleteDialog, setShowDeleteDialog, removeTodoItem } = useContext(TodoContext);
 
     useEffect(() => {
-        console.log(`showDeleteDialog: ${showDeleteDialog}`)
+        // console.log(`showDeleteDialog: ${showDeleteDialog}`)
     }, [showDeleteDialog])
 
     const cancelDelete = () => {
         setShowDeleteDialog(!showDeleteDialog);
-        console.log(`cancelled!`);
+        // console.log(`cancelled!`);
     }
     const deleteHandler = () => {
         setShowDeleteDialog(!showDeleteDialog);
 
         // delete the todo from the todosArray context
         removeTodoItem(todoId);
-        console.log(`deleted!`);
+        // console.log(`deleted!`);
     }
     return (
         <DeleteButtonContainer onClick={() => setShowDeleteDialog(!showDeleteDialog)}>

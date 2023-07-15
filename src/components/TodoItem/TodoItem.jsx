@@ -26,7 +26,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
     const handleSave = () => {
         // Perform save logic here
         setIsEditable(false);
-        console.log({ title, description })
+        // console.log({ title, description })
 
         if (!isEdited) {
             // didn't edit title or description

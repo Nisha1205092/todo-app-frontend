@@ -29,7 +29,7 @@ export const TodoContextProvider = ({ children }) => {
      * handled the server not available case
     */
     useEffect(() => {
-        console.log('useEffect run')
+        // console.log('useEffect run')
 
         fetchAllTodos()
             .then(todos => setTodosArray(todos))
@@ -44,7 +44,7 @@ export const TodoContextProvider = ({ children }) => {
         const updatedTodos = [...todosArray]; // Create a copy of the todosArray
 
         const index = updatedTodos.findIndex(todo => todo._id === todoId); // Find the index of the todo item
-        console.log({ index })
+        // console.log({ index })
         if (index !== -1) {
             updatedTodos[index] = {
                 ...updatedTodos[index],
@@ -61,7 +61,7 @@ export const TodoContextProvider = ({ children }) => {
             })
                 .then((res) => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setTodosArray(updatedTodos); // Update the todosArray state
                 })
                 .catch((err) => alert('Something went wrong! Please refresh!'))
@@ -75,7 +75,7 @@ export const TodoContextProvider = ({ children }) => {
             method: 'DELETE'
         })
             .then(() => {
-                console.log('delete successful')
+                // console.log('delete successful')
                 //no need to fetch from server
                 const newTodosArray = todosArray.filter(todo => todo._id !== todoId)
                 setTodosArray(newTodosArray)
@@ -102,7 +102,7 @@ export const TodoContextProvider = ({ children }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 todoId = data.id
                 // no need to fetch from the server
                 const newTodosArray = [...todosArray];
@@ -126,7 +126,7 @@ export const TodoContextProvider = ({ children }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 const newTodosArray = [...todosArray];
                 const index = newTodosArray.findIndex(item => item._id === todoId);
                 if (index !== -1) {
@@ -134,7 +134,7 @@ export const TodoContextProvider = ({ children }) => {
                     newTodosArray[index].description = description;
                     setTodosArray(newTodosArray)
                 }
-                console.log('title and description updated')
+                // console.log('title and description updated')
             })
             .catch((err) => alert('Something went wrong! Please refresh!'))
 
