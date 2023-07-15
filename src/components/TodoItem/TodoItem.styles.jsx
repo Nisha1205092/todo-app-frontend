@@ -52,11 +52,15 @@ export const TodoItemTitle = styled.h3`
 `
 
 
-export const TodoItemDescription = styled.p`
+export const TodoItemDescriptionCompleted = styled.p`
     width: 100%;
     text-align: left;
-    color: ${(props) => (props.$completed ? '#BDBDBD' : '#3C3C3C')};
-
+    color: ${({ theme }) => theme.todoCompleted};
+`
+export const TodoItemDescriptionNotCompleted = styled.p`
+    width: 100%;
+    text-align: left;
+    color: ${({ theme }) => theme.todoNotCompleted};
 `
 // BDBDBD
 // 3C3C3C

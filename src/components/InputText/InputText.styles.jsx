@@ -10,6 +10,7 @@ export const InputTextContainer = styled.div`
         padding: 1rem;
         font-size: 1rem;
         color: #3C3C3C;
+        background-color: ${({ theme }) => theme.titleDescriptionCreate};
         transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
         width: 60%;
     }

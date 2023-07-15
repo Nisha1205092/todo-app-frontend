@@ -37,6 +37,36 @@ export const TodoContextProvider = ({ children }) => {
 
     }, [])
 
+    /**
+     * handled the server not available case
+    */
+    const updateCheckbox = (todoId, checkedStatus) => {
+        const updatedTodos = [...todosArray]; // Create a copy of the todosArray
+
+        const index = updatedTodos.findIndex(todo => todo._id === todoId); // Find the index of the todo item
+        console.log({ index })
+        if (index !== -1) {
+            updatedTodos[index] = {
+                ...updatedTodos[index],
+                completed: checkedStatus, // Modify the status property
+            };
+
+            // update in DB
+            fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
+                method: 'PUT',
+                body: JSON.stringify({ completed: checkedStatus }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((res) => res.json())
+                .then(data => {
+                    console.log(data);
+                    setTodosArray(updatedTodos); // Update the todosArray state
+                })
+                .catch((err) => alert('Something went wrong! Please refresh!'))
+        }
+    }
     /** 
      * handled the server not available case
     */
@@ -118,7 +148,8 @@ export const TodoContextProvider = ({ children }) => {
         setTodosArray,
         removeTodoItem,
         addTodoItem,
-        updateTodoItem
+        updateTodoItem,
+        updateCheckbox
     }
     return (
         <TodoContext.Provider value={value}>

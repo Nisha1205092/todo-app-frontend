@@ -85,48 +85,48 @@ export const CheckBoxContainer = styled.div`
 
     @-moz-keyframes splash-12 {
         40% {
-            background: #866efb;
-            box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+            background: ${({ theme }) => theme.color1};
+            box-shadow: 0 -18px 0 -8px ${({ theme }) => theme.color1}, 16px -8px 0 -8px ${({ theme }) => theme.color1}, 16px 8px 0 -8px ${({ theme }) => theme.color1}, 0 18px 0 -8px ${({ theme }) => theme.color1}, -16px 8px 0 -8px ${({ theme }) => theme.color1}, -16px -8px 0 -8px ${({ theme }) => theme.color1};
         }
 
         100% {
-            background: #866efb;
+            background: ${({ theme }) => theme.color1};
             box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
         }
     }
 
     @-webkit-keyframes splash-12 {
         40% {
-            background: #866efb;
-            box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+            background: ${({ theme }) => theme.color1};
+            box-shadow: 0 -18px 0 -8px ${({ theme }) => theme.color1}, 16px -8px 0 -8px ${({ theme }) => theme.color1}, 16px 8px 0 -8px ${({ theme }) => theme.color1}, 0 18px 0 -8px ${({ theme }) => theme.color1}, -16px 8px 0 -8px ${({ theme }) => theme.color1}, -16px -8px 0 -8px ${({ theme }) => theme.color1};
         }
 
         100% {
-            background: #866efb;
+            background: ${({ theme }) => theme.color1};
             box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
         }
     }
 
     @-o-keyframes splash-12 {
         40% {
-            background: #866efb;
-            box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+            background: ${({ theme }) => theme.color1};
+            box-shadow: 0 -18px 0 -8px ${({ theme }) => theme.color1}, 16px -8px 0 -8px ${({ theme }) => theme.color1}, 16px 8px 0 -8px ${({ theme }) => theme.color1}, 0 18px 0 -8px ${({ theme }) => theme.color1}, -16px 8px 0 -8px ${({ theme }) => theme.color1}, -16px -8px 0 -8px ${({ theme }) => theme.color1};
         }
 
         100% {
-            background: #866efb;
+            background: ${({ theme }) => theme.color1};
             box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
         }
     }
 
     @keyframes splash-12 {
         40% {
-            background: #866efb;
-            box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+            background: ${({ theme }) => theme.color1};
+            box-shadow: 0 -18px 0 -8px ${({ theme }) => theme.color1}, 16px -8px 0 -8px ${({ theme }) => theme.color1}, 16px 8px 0 -8px ${({ theme }) => theme.color1}, 0 18px 0 -8px ${({ theme }) => theme.color1}, -16px 8px 0 -8px ${({ theme }) => theme.color1}, -16px -8px 0 -8px ${({ theme }) => theme.color1};
         }
 
         100% {
-            background: #866efb;
+            background: ${({ theme }) => theme.color1};
             box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
         }
     }

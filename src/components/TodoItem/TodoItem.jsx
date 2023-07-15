@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import {
     CustomInput,
     TodoItemContainer,
-    TodoItemDescription,
+    TodoItemDescriptionCompleted,
+    TodoItemDescriptionNotCompleted,
     CustomTextArea,
     TodoItemTitle,
     TitleDescriptionContainer
@@ -40,31 +41,43 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
     return (
         <TodoItemContainer>
             <TitleDescriptionContainer>
-                {isEditable ? (
-                    <CustomInput
-                        type="text"
-                        value={title}
-                        onChange={(e) => {
-                            setTitle(e.target.value);
-                            setIsEdited(true);
-                        }
-                        }
-                    />
-                ) : (
-                    <TodoItemTitle $completed={todoCompleted}>{title}</TodoItemTitle>
-                )}
+                {
+                    isEditable ?
+                        (
+                            <CustomInput
+                                type="text"
+                                value={title}
+                                onChange={(e) => {
+                                    setTitle(e.target.value);
+                                    setIsEdited(true);
+                                }
+                                }
+                            />
+                        )
+                        :
+                        (
+                            <TodoItemTitle $completed={todoCompleted}>{title}</TodoItemTitle>
+                        )
+                }
 
-                {isEditable ? (
-                    <CustomTextArea
-                        value={description}
-                        onChange={(e) => {
-                            setDescription(e.target.value);
-                            setIsEdited(true);
-                        }}
-                    />
-                ) : (
-                    <TodoItemDescription $completed={todoCompleted}>{description}</TodoItemDescription>
-                )}
+                {
+                    isEditable ?
+                        (
+                            <CustomTextArea
+                                value={description}
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                    setIsEdited(true);
+                                }}
+                            />
+                        )
+                        :
+                        (
+                            todoCompleted ? <TodoItemDescriptionCompleted>{description}</TodoItemDescriptionCompleted>
+                                : <TodoItemDescriptionNotCompleted>{description}</TodoItemDescriptionNotCompleted>
+                            // <TodoItemDescription $completed={todoCompleted}>{description}</TodoItemDescription>
+                        )
+                }
             </TitleDescriptionContainer>
 
             <EditButton

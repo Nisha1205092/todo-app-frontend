@@ -15,6 +15,7 @@ export const TextAreaInput = styled.textarea`
     color: #3C3C3C;
     transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 60%;
+    background-color: ${({ theme }) => theme.titleDescriptionCreate};
 
     &:focus,
     input:valid {
