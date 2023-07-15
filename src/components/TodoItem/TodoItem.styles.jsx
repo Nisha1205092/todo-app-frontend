@@ -34,13 +34,13 @@ export const CustomInput = styled.input`
 export const TodoItemContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
 `
 
 export const TitleDescriptionContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 500px;
     padding: 20px;
 `
 

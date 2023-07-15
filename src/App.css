@@ -1,11 +1,13 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
 }
 
 /*
+padding: 2rem; --- removed
+
 beguni: #B7AEF2
 holud: #F2ECB3
 kalo: #3C3C3C
