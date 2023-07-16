@@ -14,4 +14,8 @@ export const TodoListContainer = styled.div`
     background: ${({ theme }) => theme.color2};
     border-radius: 0.5rem;
     padding: 0 60px 60px 60px; 
+
+    @media screen and (max-width: 420px) {
+        padding: 0 20px 60px 20px;
+    }
 `
