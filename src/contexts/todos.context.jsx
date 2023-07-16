@@ -106,8 +106,10 @@ export const TodoContextProvider = ({ children }) => {
                 todoId = data.id
                 // no need to fetch from the server
                 const newTodosArray = [...todosArray];
-                newTodosArray.push({ todoId, title, completed, description })
+                newTodosArray.push({ _id: todoId, title, completed, description })
+                console.log(`new todoId: ${todoId}`);
                 setTodosArray(newTodosArray)
+                console.log('newTodosArray: ', newTodosArray)
             })
             .catch((err) => alert('Something went wrong!'))
     }
