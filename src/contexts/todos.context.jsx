@@ -8,8 +8,7 @@ export const TodoContext = createContext({
 })
 
 export const TodoContextProvider = ({ children }) => {
-    const [todosArray, setTodosArray] = useState([]);
-    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+    const [todosArray, setTodosArray] = useState(null);
 
     const fetchAllTodos = async () => {
         const data = await fetch(`${import.meta.env.VITE_SERVER_URL}/todos`, {
@@ -17,10 +16,7 @@ export const TodoContextProvider = ({ children }) => {
         })
         const response = await data.json()
         const array = await response.todoArray;
-        if (array) {
-            return array
-        }
-        return [];
+        return array; // can be []
     }
 
     /**
@@ -30,7 +26,7 @@ export const TodoContextProvider = ({ children }) => {
         // console.log('useEffect run')
 
         fetchAllTodos()
-            .then(todos => setTodosArray(todos))
+            .then(todos => setTodosArray(todos)) // can be []
             .catch(err => alert('Something went wrong!'))
 
     }, [])

@@ -20,8 +20,10 @@ const TodoList = () => {
         }
     }
 
-    // Sort the todos array using the custom sorting function
-    todosArray.sort(compareTodos);
+    if (todosArray) {
+        // Sort the todos array using the custom sorting function
+        todosArray.sort(compareTodos);
+    }
 
     const randomKeyGenerator = () => {
         const key = Math.floor(Math.random() * 1000000);
@@ -31,8 +33,8 @@ const TodoList = () => {
         <TodoListContainer>
             <h3>Todo List</h3>
             {
-                todosArray.length !== 0 ?
-                    todosArray.map((todo) =>
+                todosArray?.length !== 0 ?
+                    todosArray?.map((todo) =>
                         <TodoListItemContainer key={randomKeyGenerator()}>
                             <CheckBox key={randomKeyGenerator()} status={todo.completed} todoId={todo._id} />
                             <TodoItem
@@ -45,7 +47,8 @@ const TodoList = () => {
                             <DeleteButton todoId={todo._id} todoTitle={todo.title} />
                         </TodoListItemContainer>
                     )
-                    : 'loading'
+                    : todosArray === null ? <h4>loading...</h4> : <h4>Empty!!</h4>
+
             }
 
         </TodoListContainer>
