@@ -33,24 +33,22 @@ const TodoList = () => {
         <TodoListContainer>
             <h3>Todo List</h3>
             {
-                todosArray?.length !== 0 ?
-                    todosArray?.map((todo) =>
-                        <TodoListItemContainer key={randomKeyGenerator()}>
-                            <CheckBox key={randomKeyGenerator()} status={todo.completed} todoId={todo._id} />
-                            <TodoItem
-                                todoId={todo._id}
-                                key={randomKeyGenerator()}
-                                todoTitle={todo.title}
-                                todoCompleted={todo.completed}
-                                todoDescription={todo.description}
-                            />
-                            <DeleteButton todoId={todo._id} todoTitle={todo.title} />
-                        </TodoListItemContainer>
-                    )
-                    : todosArray === null ? <h4>loading...</h4> : <h4>Empty!!</h4>
-
+                todosArray === null ? <h4>Loading...</h4> :
+                    todosArray.length === 0 ? <h4>Empty!!</h4> :
+                        todosArray.map((todo) =>
+                            <TodoListItemContainer key={randomKeyGenerator()}>
+                                <CheckBox key={randomKeyGenerator()} status={todo.completed} todoId={todo._id} />
+                                <TodoItem
+                                    todoId={todo._id}
+                                    key={randomKeyGenerator()}
+                                    todoTitle={todo.title}
+                                    todoCompleted={todo.completed}
+                                    todoDescription={todo.description}
+                                />
+                                <DeleteButton todoId={todo._id} todoTitle={todo.title} />
+                            </TodoListItemContainer>
+                        )
             }
-
         </TodoListContainer>
     )
 }
