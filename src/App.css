@@ -1,16 +1,22 @@
 #root {
   margin: 0 auto;
   text-align: center;
+}
 
-  @media screen and (width < 420px) {
+@media screen and (max-width: 420px) {
+  #root {
     width: 95%;
   }
+}
 
-  @media screen and (420px < width < 768px) {
+@media screen and (min-width: 420px) and (max-width: 768px) {
+  #root {
     width: 80%;
   }
+}
 
-  @media screen and (width >=768px) {
+@media screen and (min-width: 768px) {
+  #root {
     width: 620px;
   }
 }
