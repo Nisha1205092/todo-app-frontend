@@ -1,8 +1,18 @@
 #root {
-  max-width: 600px;
   margin: 0 auto;
-
   text-align: center;
+
+  @media screen and (width < 420px) {
+    width: 95%;
+  }
+
+  @media screen and (420px < width < 768px) {
+    width: 80%;
+  }
+
+  @media screen and (width >=768px) {
+    width: 620px;
+  }
 }
 
 /*
