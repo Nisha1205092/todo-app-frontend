@@ -6,3 +6,5 @@ This is a Todo App
     - To deploy via the vercel CLI, first run ```npm run build```
     - Then run ```vercel```
     - This will deploy the frontend on Vercel
+
+![screenshot](./src/assets/ss.png)
