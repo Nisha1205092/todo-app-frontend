@@ -82,7 +82,7 @@ const TodoItem = ({ todoId, todoTitle, todoDescription, todoCompleted }) => {
 
             <EditButton
                 editButtonHandler={!isEditable ? handleEdit : handleSave}
-                buttonText={isEditable ? 'Save' : 'Edit'}
+                showSaveIcon={isEditable}
             />
         </TodoItemContainer>
     );

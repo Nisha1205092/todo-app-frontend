@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const DeleteButtonContainer = styled.div`
     cursor: pointer;
+    text-align: right;
     & svg {
     width: 30px;
     height: auto;

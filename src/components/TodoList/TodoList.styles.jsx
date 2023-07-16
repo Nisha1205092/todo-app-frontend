@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const TodoListItemContainer = styled.div`
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 10% 75% 15%;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #3C3C3C;
