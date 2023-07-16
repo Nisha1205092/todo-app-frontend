@@ -1,22 +1,19 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { DeleteButtonContainer } from "./DeleteButton.styles";
 import DeleteDialog from "../DeleteDialog/DeleteDialog";
 import { TodoContext } from "../../contexts/todos.context";
 
-const DeleteButton = ({ todoId }) => {
-    const { showDeleteDialog, setShowDeleteDialog, removeTodoItem } = useContext(TodoContext);
+const DeleteButton = ({ todoId, todoTitle }) => {
+    const { removeTodoItem } = useContext(TodoContext);
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
-    useEffect(() => {
-        // console.log(`showDeleteDialog: ${showDeleteDialog}`)
-    }, [showDeleteDialog])
-
+    console.log(`deleteButton rerendered, ${todoTitle}`)
     const cancelDelete = () => {
         setShowDeleteDialog(!showDeleteDialog);
         // console.log(`cancelled!`);
     }
     const deleteHandler = () => {
         setShowDeleteDialog(!showDeleteDialog);
-
         // delete the todo from the todosArray context
         removeTodoItem(todoId);
         // console.log(`deleted!`);

@@ -1,8 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
 export const TodoContext = createContext({
-    showDeleteDialog: false,
-    setShowDeleteDialog: () => { },
     todosArray: [],
     setTodosArray: () => { },
     removeTodoItem: () => { },
@@ -71,6 +69,8 @@ export const TodoContextProvider = ({ children }) => {
      * handled the server not available case
     */
     const removeTodoItem = (todoId) => {
+        console.log(`inside removeTodoItem, delete id: ${todoId}`);
+        console.log(`before delete, todosArray ${todosArray}`)
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
             method: 'DELETE'
         })
@@ -144,8 +144,6 @@ export const TodoContextProvider = ({ children }) => {
     }
 
     const value = {
-        showDeleteDialog,
-        setShowDeleteDialog,
         todosArray,
         setTodosArray,
         removeTodoItem,

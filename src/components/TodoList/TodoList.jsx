@@ -42,7 +42,7 @@ const TodoList = () => {
                                 todoCompleted={todo.completed}
                                 todoDescription={todo.description}
                             />
-                            <DeleteButton todoId={todo._id} />
+                            <DeleteButton todoId={todo._id} todoTitle={todo.title} />
                         </TodoListItemContainer>
                     )
                     : 'loading'
