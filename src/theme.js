@@ -14,7 +14,9 @@ export const lightTheme = {
   textAndIcon: '3C3C3C',              // dark grey
   todoCompleted: '#BDBDBD',
   todoNotCompleted: '#3C3C3C',
-  titleDescriptionCreate: '#fff'
+  titleDescriptionCreate: '#fff',
+  deleteDialog: '#fffeb5',
+  deleteDialogButtons: '#d2c8d7'
 };
 export const darkTheme = {
   body: '#121620',
@@ -24,5 +26,7 @@ export const darkTheme = {
   textAndIcon: '#bdbdbd',
   todoCompleted: '#3C3C3C',
   todoNotCompleted: '#bdbdbd',
-  titleDescriptionCreate: '#bdbdbd'
+  titleDescriptionCreate: '#bdbdbd',
+  deleteDialog: '#3E3E3E',
+  deleteDialogButtons: '#b2a0db'
 };

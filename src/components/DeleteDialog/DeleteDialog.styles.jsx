@@ -14,7 +14,7 @@ export const DialogWrapper = styled.div`
 `;
 
 export const DialogBox = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.deleteDialog};
   padding: 20px;
   border-radius: 4px;
 `;
@@ -27,4 +27,5 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   margin-left: 10px;
+  background-color: ${({ theme }) => theme.deleteDialogButtons}
 `;
