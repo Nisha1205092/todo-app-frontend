@@ -34,7 +34,8 @@ export const ThemeLabel = styled.label`
     display: inline-block;
     width: 64px;
     height: 34px;
-
+    margin: 15px 0;
+    
     & input {
         opacity: 0;
         width: 0;
@@ -92,15 +93,15 @@ export const ThemeMoon = styled.span`
     }
 `
 export const ThemeInput = styled.input`
-    &:checked + .slider {
+    &:checked + ${ThemeSlider} {
         background-color: #183153;
     }
 
-    &:focus + .slider {
+    &:focus + ${ThemeSlider} {
         box-shadow: 0 0 1px #183153;
     }
 
-    &:checked + .slider:before {
+    &:checked + ${ThemeSlider}:before {
         transform: translateX(30px);
     }
 `
