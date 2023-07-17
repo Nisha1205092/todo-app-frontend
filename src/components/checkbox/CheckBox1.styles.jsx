@@ -1,68 +1,70 @@
-import { keyframes, styled } from "styled-components";
-
-export const Cbx12 = styled.input`
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-    margin: 0;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #bfbfc0;
-    border-radius: 50%;
-
-    &:focus {
-        outline: 0;
-    }
-`
-
-export const Label = styled.label`
-    width: 24px;
-    height: 24px;
-    background: none;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    transform: trasnlate3d(0, 0, 0);
-    pointer-events: none;
-`
-
-export const Cbx = styled.div`
-    width: 24px;
-    height: 24px;
-    top: calc(100px - 12px);
-    left: calc(100px - 12px);
-`
-
-export const Icon = styled.svg`
-    position: absolute;
-    top: -130%;
-    left: -170%;
-    width: 110px;
-    pointer-events: none;    
-`
+import { styled } from "styled-components";
 
 export const CheckBoxContainer = styled.div`
     position: relative;
+
+    & >svg {
+        position: absolute;
+        top: -130%;
+        left: -170%;
+        width: 110px;
+        pointer-events: none;
+    }
 
     &  * {
         box-sizing: border-box;
     }
 
-    &  ${Cbx} ${Icon} {
+    &  input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    &  input[type="checkbox"]:focus {
+        outline: 0;
+    }
+
+    &  .cbx {
+        width: 24px;
+        height: 24px;
+        top: calc(100px - 12px);
+        left: calc(100px - 12px);
+    }
+
+    &  .cbx input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #bfbfc0;
+        border-radius: 50%;
+    }
+
+    &  .cbx label {
+        width: 24px;
+        height: 24px;
+        background: none;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        transform: trasnlate3d(0, 0, 0);
+        pointer-events: none;
+    }
+
+    &  .cbx svg {
         position: absolute;
         top: 5px;
-        left: -43px;
+        left: 4px;
         z-index: 1;
         pointer-events: none;
     }
 
-    &  ${Cbx} ${Icon} path {
+    &  .cbx svg path {
         stroke: #fff;
         stroke-width: 3;
         stroke-linecap: round;
@@ -73,11 +75,11 @@ export const CheckBoxContainer = styled.div`
         transition-delay: 0.2s;
     }
 
-    &  ${Cbx} ${Cbx12}:checked+${Label} {
+    &  .cbx input:checked+label {
         animation: splash-12 0.6s ease forwards;
     }
 
-    &  ${Cbx} ${Cbx12}:checked+${Label}+${Icon} path {
+    &  .cbx input:checked+label+svg path {
         stroke-dashoffset: 0;
     }
 
