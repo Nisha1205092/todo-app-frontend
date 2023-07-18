@@ -7,7 +7,6 @@ const DeleteButton = ({ todoId, todoTitle }) => {
     const { removeTodoItem } = useContext(TodoContext);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
-    console.log(`deleteButton rerendered, ${todoTitle}`)
     const cancelDelete = () => {
         setShowDeleteDialog(!showDeleteDialog);
         // console.log(`cancelled!`);

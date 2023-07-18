@@ -65,8 +65,6 @@ export const TodoContextProvider = ({ children }) => {
      * handled the server not available case
     */
     const removeTodoItem = (todoId) => {
-        console.log(`inside removeTodoItem, delete id: ${todoId}`);
-        console.log(`before delete, todosArray ${todosArray}`)
         fetch(`${import.meta.env.VITE_SERVER_URL}/todos/${todoId}`, {
             method: 'DELETE'
         })
@@ -103,9 +101,7 @@ export const TodoContextProvider = ({ children }) => {
                 // no need to fetch from the server
                 const newTodosArray = [...todosArray];
                 newTodosArray.push({ _id: todoId, title, completed, description })
-                console.log(`new todoId: ${todoId}`);
                 setTodosArray(newTodosArray)
-                console.log('newTodosArray: ', newTodosArray)
             })
             .catch((err) => alert('Something went wrong!'))
     }
